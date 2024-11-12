@@ -1,0 +1,92 @@
+/* Profile Edit Container */
+.profile-edit-container {
+    max-width: 500px; /* Form width limit */
+    margin: 30px auto; /* Center the form */
+    padding: 20px;
+    background: linear-gradient(to right, #a8d8ff, #d4f1fd); /* Baby Blue Gradient */
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Style */
+.profile-edit-container h2 {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-size: 2rem;
+    text-align: center; /* Center the heading */
+    margin-bottom: 30px;
+}
+
+/* Form Fields Container */
+.form-container p {
+    margin-bottom: 20px; /* Add spacing between form fields */
+}
+
+/* Form Input Fields */
+.profile-edit-container input, .profile-edit-container select, .profile-edit-container textarea {
+    border-radius: 5px; /* Slightly rounded corners */
+    border: 1px solid #ccc; /* Light border */
+    padding: 12px;
+    width: 100%; /* Full width */
+    font-size: 1rem;
+    margin-bottom: 15px; /* Space between fields */
+    transition: border-color 0.3s ease-in-out; /* Smooth transition on focus */
+}
+
+/* Input Fields on Focus */
+.profile-edit-container input:focus, .profile-edit-container select:focus, .profile-edit-container textarea:focus {
+    border-color: #a8d8ff; /* Highlight on focus with baby blue color */
+    outline: none;
+}
+
+/* Button Styling */
+.profile-edit-container .btn {
+    font-size: 1.1rem;  /* Bigger font size */
+    padding: 12px 20px; /* Add padding */
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+    border: 1px solid transparent; /* Transparent border */
+    width: 48%; /* Buttons equally large */
+}
+
+/* Button Hover Effects */
+.profile-edit-container .btn:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    background-color: #9ccaff; /* Hover color for buttons */
+    color: #fff;
+    border-color: #9ccaff; /* Add border on hover */
+}
+
+/* Button Gap */
+.profile-edit-container .d-flex .btn {
+    margin-right: 10px; /* Small gap between buttons */
+}
+
+/* Media Query: Stacked Buttons on Small Screens */
+@media (max-width: 576px) {
+    .profile-edit-container .d-flex {
+        flex-direction: column; /* Stack buttons vertically */
+    }
+
+    .profile-edit-container .d-flex .btn {
+        margin-bottom: 10px; /* Add space between stacked buttons */
+        width: 100%; /* Full width for buttons on smaller screens */
+    }
+}
+/* Align profile picture clear checkbox */
+.profile-edit-container .form-check {
+    display: flex;
+    align-items: center;
+}
+
+.profile-edit-container .form-check input[type="checkbox"] {
+    margin-right: 10px; /* Add spacing between the checkbox and label */
+}
+/* Profile Picture Section */
+.profile-edit-container .current-image img {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 50%; /* Optional: for a round profile picture */
+}
+

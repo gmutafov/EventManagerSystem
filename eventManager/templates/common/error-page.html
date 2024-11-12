@@ -1,0 +1,12 @@
+<!-- templates/common/failure.html -->
+{% extends 'common/base.html' %}
+{% block title %}Action Failed{% endblock %}
+
+{% block content %}
+<div class="status-container">
+    <h1>Action Failed</h1>
+    <p>Unfortunately, we couldn't complete your request. Please try again later or contact support if the issue persists.</p>
+    <a id="error-btn" href="{% url 'home' %}" class="btn btn-primary">Return to Home</a>
+</div>
+{% endblock %}
+

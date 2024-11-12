@@ -1,0 +1,12 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <div class="event-delete-container">
+        <h2>Are you sure you want to delete this event?</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-danger">Delete Event</button>
+        </form>
+    </div>
+{% endblock %}

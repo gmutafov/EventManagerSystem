@@ -1,0 +1,217 @@
+/* General Styles for both Register and Login pages */
+.register-container {
+    max-width: 600px; /* Make the form smaller */
+    margin: 20px auto; /* Less top margin */
+    padding: 20px; /* Reduced padding */
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 1.8rem; /* Smaller heading */
+    text-align: center;
+    margin-bottom: 20px; /* Reduced margin bottom */
+    color: #343a40;
+}
+
+/* Form Group Styles */
+.form-group {
+    margin-bottom: 15px; /* Less space between form fields */
+}
+
+label {
+    font-size: 1.1rem;
+    color: #495057;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 8px; /* Smaller padding */
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #5b9bd5; /* Baby blue focus border */
+    outline: none;
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 10px; /* Smaller button padding */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Link Style for Login/Registration Switch */
+p {
+    text-align: center;
+    margin-top: 15px; /* Smaller margin-top */
+}
+
+p a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 576px) {
+    .register-container {
+        padding: 15px; /* Reduced padding for small screens */
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    label, input, button {
+        font-size: 1rem;
+    }
+}
+/* Center the placeholder text inside the form fields */
+input::placeholder,
+textarea::placeholder {
+    text-align: center;
+}
+
+/* Optional: Make the form fields themselves centered (if desired) */
+.form-control {
+    text-align: center;
+}
+/* Login Container */
+.login-container {
+    max-width: 500px; /* Restrict form width */
+    margin: 50px auto; /* Center the form */
+    padding: 30px;
+    background-color: #f9f9f9; /* Light background */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Center text for the heading */
+.login-container h1 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+/* Form styling */
+.login-form .form-group {
+    margin-bottom: 20px;
+}
+
+/* Center labels and inputs */
+.login-form label {
+    display: block;
+    font-weight: bold;
+    text-align: center; /* Centering the labels */
+    margin-bottom: 8px;
+}
+
+/* Input field styling */
+.login-form .form-control {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: center;  /* Center text inside the input fields */
+}
+
+/* Placeholder text centering */
+.login-form .form-control::placeholder {
+    text-align: center;
+}
+
+/* Button styling */
+.login-form .btn {
+    font-size: 1.1rem;
+    padding: 12px 20px;
+    width: 100%; /* Make button full width */
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Button hover effect */
+.login-form .btn:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+/* Additional hover effects */
+.login-form .btn:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 105, 217, 0.5);
+}
+
+/* Optional: Link styling for the 'Login here' prompt */
+.login-container p {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.login-container p a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-container p a:hover {
+    text-decoration: underline;
+}
+
+.button-container {
+    text-align: center;
+}
+
+#delete, #cancel {
+    width: 300px; /* Set both buttons to 300px wide */
+    margin: 10px; /* Adds some space around the buttons */
+}
+
+#delete {
+    display: inline-block;
+}
+
+#cancel {
+    display: inline-block;
+}
+.delete-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 50vh; /* Optional: To center content vertically */
+}
+
+.button-container {
+    margin-bottom: 10px; /* Adds some space between the form button and the cancel button */
+}
+
+#delete-profile, #cancel-deletion {
+    width: 300px; /* Set both buttons to 300px wide */
+    margin: 10px; /* Adds space between buttons */
+}

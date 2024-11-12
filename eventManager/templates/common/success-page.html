@@ -1,0 +1,11 @@
+{% extends 'common/base.html' %}
+
+{% block title %}Success{% endblock %}
+
+{% block content %}
+<div class="status-container">
+    <h1>Action Successful!</h1>
+    <p>Your action was completed successfully.</p>
+    <a id="success-btn" href="{% url 'home' %}" class="btn btn-primary">Return to Home</a>
+</div>
+{% endblock %}

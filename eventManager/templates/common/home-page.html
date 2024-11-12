@@ -1,0 +1,74 @@
+{% extends 'common/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <div class="container home-container">
+        <h1>Upcoming Events</h1>
+        <ul class="list-group">
+            {% for event in events %}
+                <li class="list-group-item event-item">
+                    <h2>
+                        {% if event.title.split|length > 2 %}
+                            {{ event.title|truncatewords:2 }}
+                        {% else %}
+                            {{ event.title }}
+                        {% endif %}
+                    </h2>
+
+                    <!-- Description: Display ellipsis only if more than 20 words -->
+                    <p id="description">
+                        {% if event.description|length > 60 %}
+                            {{ event.description|truncatechars:60 }}
+                        {% else %}
+                            {{ event.description }}
+                        {% endif %}
+                    </p>
+                    <p><strong>Date:</strong> {{ event.date }}</p>
+                    <p><strong>Location:</strong> {{ event.location }}</p>
+                    <p><strong>Organizer:</strong> {{ event.created_by }}</p>
+                    <a href="{% url 'event_detail' event.pk %}" class="btn btn-info">View Details</a>
+                </li>
+            {% empty %}
+                <li class="list-group-item">No upcoming events.</li>
+            {% endfor %}
+        </ul>
+
+        <!-- Pagination controls -->
+        <div class="d-flex justify-content-center mt-4">
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page=1">&laquo; First</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">Previous</span>
+                    </li>
+                {% endif %}
+
+                <li class="page-item active">
+                    <span class="page-link">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                    </span>
+                </li>
+
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">Next</span>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

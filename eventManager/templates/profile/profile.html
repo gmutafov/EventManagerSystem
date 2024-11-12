@@ -1,0 +1,26 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <div class="profile-container">
+        <h2>{{ user.username }}'s Profile</h2>
+
+        <div class="profile-content">
+            {% if user.profile_picture %}
+                <img src="{{ user.profile_picture }}" alt="Profile Image" class="profile-image">
+            {% else %}
+                <p>No profile image available.</p>
+            {% endif %}
+
+            <div class="profile-details">
+                <p><strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+                <p><strong>Username:</strong> {{ user.username }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                <p><strong>Total Events Created:</strong> {{ event_count }}</p>
+            </div>
+            <div class="profile-actions">
+                <a href="{% url 'profile_edit' %}" class="btn btn-primary" style="margin: 20px">Edit Profile</a>
+                <a href="{% url 'profile_delete' %}" class="btn btn-danger" style="margin: 20px">Delete Profile</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
