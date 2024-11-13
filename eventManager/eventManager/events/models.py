@@ -9,7 +9,11 @@ class Event(models.Model):
     created_by = models.ForeignKey(AppUser, on_delete=models.CASCADE, related_name='events')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    image = models.URLField(blank=True, null=True)
+    image = models.ImageField(
+        upload_to= 'event_images/',
+        blank=True,
+        null=True,
+    )
 
     def __str__(self):
         return self.title
