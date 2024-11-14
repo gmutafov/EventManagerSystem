@@ -1,7 +1,7 @@
 from django.urls import reverse_lazy
 from django.views.generic import ListView, TemplateView, UpdateView, CreateView, DeleteView
 
-from eventManager.common.forms import OrganizerForm, VenueForm, OrganizerDeleteForm
+from eventManager.common.forms import OrganizerForm, VenueForm
 from eventManager.common.models import Venue, Organizer
 from eventManager.events.models import Event
 from datetime import date
@@ -28,42 +28,47 @@ class AboutPageView(TemplateView):
 
 class VenueListView(ListView):
     model = Venue
-    template_name = 'venues/venues-list.html'
+    template_name = 'venue/venues-list.html'
     context_object_name = 'venues'
 
 class OrganizerListView(ListView):
     model = Organizer
-    template_name = 'organizers/organizers-list.html'
+    template_name = 'organizer/organizers-list.html'
     context_object_name = 'organizers'
 
 class VenueUpdateView(UpdateView):
     model = Venue
     form_class = VenueForm
-    template_name = 'venues/venue-edit.html'
-    success_url = reverse_lazy('venues-list')
+    template_name = 'venue/venue-edit.html'
+    success_url = reverse_lazy('venue-list')
 
 class OrganizerUpdateView(UpdateView):
     model = Organizer
     form_class = OrganizerForm
-    template_name = 'organizers/organizer-edit.html'
+    template_name = 'organizer/organizer-edit.html'
     success_url = reverse_lazy('organizer_list')
 
 
 class VenueCreateView(CreateView):
     model = Venue
     form_class = VenueForm
-    template_name = 'venues/venue-create.html'
-    success_url = reverse_lazy('venues_list')
+    template_name = 'venue/venue-create.html'
+    success_url = reverse_lazy('success')
 
 class OrganizerCreateView(CreateView):
     model = Organizer
     form_class = OrganizerForm
-    template_name = 'organizers/organizer-create.html'
-    success_url = reverse_lazy('organizer_list')
+    template_name = 'organizer/organizer-create.html'
+    success_url = reverse_lazy('success')
 
 
 class OrganizerDeleteView(DeleteView):
     model = Organizer
-    form_class = OrganizerDeleteForm
-    template_name = 'organizers/organizer-delete.html'
+    template_name = 'organizer/organizer-delete.html'
+    success_url = reverse_lazy('success')
+
+
+class VenueDeleteView(DeleteView):
+    model = Venue
+    template_name = 'venue/venue-delete.html'
     success_url = reverse_lazy('success')

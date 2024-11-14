@@ -22,7 +22,7 @@ class EventCreateForm(EventBaseForm):
 
 class EventEditForm(EventBaseForm):
         class Meta(EventBaseForm.Meta):
-            exclude = ['image', 'venues']
+            exclude = ['image', 'venue']
 
 
 class EventDeleteForm(forms.Form):

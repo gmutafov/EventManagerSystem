@@ -3,7 +3,7 @@
 {% block content %}
   <div class="create-event-container">
     <h1>Create Organizer</h1>
-    <form method="POST" enctype="multipart/form-data">
+    <form method="POST">
       {% csrf_token %}
       {{ form.as_p }}
       <button type="submit" class="btn btn-primary">Create Organizer</button>
