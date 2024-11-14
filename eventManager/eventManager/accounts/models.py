@@ -25,9 +25,4 @@ class AppUser(AbstractUser):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
-class Profile(models.Model):
-    user = models.OneToOneField(AppUser, on_delete=models.CASCADE)
-    bio = models.TextField(blank=True)
 
-    def __str__(self):
-        return f"{self.user.username}'s Profile"

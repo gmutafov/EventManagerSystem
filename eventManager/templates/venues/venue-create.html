@@ -1,0 +1,17 @@
+{% extends 'common/base.html' %}
+
+{% block title %}Create Venue{% endblock %}
+
+{% block content %}
+    <div id="venue-container">
+        <h1>Create a New Venue</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" id="submit-btn">Create Venue</button>
+        </form>
+
+        <a href="{% url 'venue_list' %}" id="back-btn">Back to Venues</a>
+    </div>
+{% endblock %}

@@ -1,6 +1,7 @@
 from django import forms
 from eventManager.events.models import Event
 
+
 class EventBaseForm(forms.ModelForm):
     class Meta:
         model = Event
@@ -21,7 +22,7 @@ class EventCreateForm(EventBaseForm):
 
 class EventEditForm(EventBaseForm):
         class Meta(EventBaseForm.Meta):
-            exclude = ['image']
+            exclude = ['image', 'venues']
 
 
 class EventDeleteForm(forms.Form):

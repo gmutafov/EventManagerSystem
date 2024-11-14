@@ -1,0 +1,24 @@
+{% extends 'common/base.html' %}
+
+{% block title %}Venues List{% endblock %}
+
+{% block content %}
+    <div id="venue-container">
+        <h1>All Venues</h1>
+
+        <ul>
+            {% for venue in venues %}
+                <li>
+                    <h2>{{ venue.name }}</h2>
+                    <p>{{ venue.location }}</p>
+                    <p>Capacity: {{ venue.capacity }}</p>
+                    <a href="{% url 'venue_edit' venue.pk %}">Edit</a>
+                </li>
+            {% empty %}
+                <li>No venues available.</li>
+            {% endfor %}
+        </ul>
+
+        <a href="{% url 'venue_create' %}" id="create-btn">Create a Venue</a>
+    </div>
+{% endblock %}

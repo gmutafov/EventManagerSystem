@@ -1,0 +1,11 @@
+{% extends 'common/base.html' %}
+
+{% block title %}Organizer Details{% endblock %}
+
+{% block content %}
+    <div id="organizer-container">
+        <h1>{{ organizer.name }}</h1>
+        <p><strong>Contact Info:</strong> {{ organizer.contact_info }}</p>
+        <p><strong>Description:</strong> {{ organizer.bio }}</p>
+    </div>
+{% endblock %}
