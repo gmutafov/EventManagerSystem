@@ -5,7 +5,7 @@ from eventManager.events.models import Event
 class EventBaseForm(forms.ModelForm):
     class Meta:
         model = Event
-        fields = ['title', 'description', 'date', 'location', 'image']
+        fields = ['title', 'description', 'date', 'location','venue', 'organizer', 'image']
         widgets = {
             'date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
         }

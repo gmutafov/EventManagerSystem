@@ -132,3 +132,7 @@
         font-size: 1.125rem; /* Adjust font size for date/location */
     }
 }
+
+#event-register, #event-unregister{
+    max-width: 780px;
+}
