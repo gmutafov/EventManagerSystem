@@ -1,0 +1,151 @@
+{#{% extends 'common/base.html' %}#}
+{##}
+{#{% block title %}My Registered Events{% endblock %}#}
+{##}
+{#{% block content %}#}
+{#    <div class="container mt-5">#}
+{##}
+{#        <h1 class="text-center">My Registered Events</h1>#}
+{#        <ul class="container home-container">#}
+{##}
+{#            <ul class="list-group">#}
+{##}
+{#                {% for registration in registrations %}#}
+{#                    <li class="list-group-item event-item">#}
+{#                        <h2>#}
+{#                            {% if registration.event.title.split|length > 2 %}#}
+{#                                {{ registration.event.title|truncatewords:2 }}#}
+{#                            {% else %}#}
+{#                                {{ registration.event.title }}#}
+{#                            {% endif %}#}
+{#                        </h2>#}
+{##}
+{#                        <!-- Description: Display ellipsis only if more than 20 words -->#}
+{#                        <p id="description">#}
+{#                            {% if registration.event.description|length > 60 %}#}
+{#                                {{ registration.event.description|truncatechars:60 }}#}
+{#                            {% else %}#}
+{#                                {{ registration.event.description }}#}
+{#                            {% endif %}#}
+{#                        <p><strong>Date:</strong> {{ registration.event.date|date:"F j, Y, g:i a" }}</p>#}
+{#                        <p><strong>Venue:</strong> {{ registration.event.venue }}</p>#}
+{#                        <p><strong>Organizer:</strong> {{ registration.event.organizer }}</p>#}
+{#                        <a href="{% url 'event_detail' registration.event.pk %}" class="btn btn-info">View Event</a>#}
+{#                    </li>#}
+{##}
+{#                    </ul>#}
+{#                {% empty %}#}
+{#                    <li class="list-group-item">No Registered Events.</li>#}
+{#                {% endfor %}#}
+{#    </div>#}
+{#    <div class="d-flex justify-content-center mt-4">#}
+{#        <ul class="pagination">#}
+{#            {% if page_obj.has_previous %}#}
+{#                <li class="page-item">#}
+{#                    <a class="page-link" href="?page=1">&laquo; First</a>#}
+{#                </li>#}
+{#                <li class="page-item">#}
+{#                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>#}
+{#                </li>#}
+{#            {% else %}#}
+{#                <li class="page-item disabled">#}
+{#                    <span class="page-link">Previous</span>#}
+{#                </li>#}
+{#            {% endif %}#}
+{##}
+{#            <li class="page-item active">#}
+{#                    <span class="page-link">#}
+{#                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}#}
+{#                    </span>#}
+{#            </li>#}
+{##}
+{#            {% if page_obj.has_next %}#}
+{#                <li class="page-item">#}
+{#                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>#}
+{#                </li>#}
+{#                <li class="page-item">#}
+{#                    <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>#}
+{#                </li>#}
+{#            {% else %}#}
+{#                <li class="page-item disabled">#}
+{#                    <span class="page-link">Next</span>#}
+{#                </li>#}
+{#            {% endif %}#}
+{#        </ul>#}
+{#    </div>#}
+{#{% endblock %}#}
+
+{% extends 'common/base.html' %}
+
+{% block title %}My Registered Events{% endblock %}
+
+{% block content %}
+    <div class="container home-container">
+        <h1>My Registered Events</h1>
+        <ul class="list-group">
+            {% for registration in registrations %}
+                <li class="list-group-item event-item">
+                    <h2>
+                        {% if registration.event.title.split|length > 2 %}
+                            {{ registration.event.title|truncatewords:2 }}
+                        {% else %}
+                            {{ registration.event.title }}
+                        {% endif %}
+                    </h2>
+
+                    <!-- Description: Display ellipsis only if more than 20 words -->
+                    <p id="description">
+                        {% if registration.event.description|length > 60 %}
+                            {{ registration.event.description|truncatechars:60 }}
+                        {% else %}
+                            {{ registration.event.description }}
+                        {% endif %}
+                    </p>
+                    <p><strong>Date:</strong> {{ registration.event.date }}</p>
+                    <p><strong>Venue:</strong> {{ registration.event.venue }}</p>
+                    <p><strong>Organizer:</strong> {{ registration.event.organizer }}</p>
+                    <a href="{% url 'event_detail' registration.event.pk %}" class="btn btn-info">View Details</a>
+                </li>
+            {% empty %}
+                <li class="list-group-item">You are not Registered for any Events</li>
+            {% endfor %}
+        </ul>
+
+        <!-- Pagination controls -->
+        <div class="d-flex justify-content-center mt-4">
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page=1">&laquo; First</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">Previous</span>
+                    </li>
+                {% endif %}
+
+                <li class="page-item active">
+                    <span class="page-link">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                    </span>
+                </li>
+
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">Next</span>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

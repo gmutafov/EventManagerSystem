@@ -25,8 +25,8 @@
                         {% endif %}
                     </p>
                     <p><strong>Date:</strong> {{ event.date }}</p>
-                    <p><strong>Location:</strong> {{ event.location }}</p>
-                    <p><strong>Organizer:</strong> {{ event.created_by }}</p>
+                    <p><strong>Venue:</strong> {{ event.venue }}</p>
+                    <p><strong>Organizer:</strong> {{ event.organizer }}</p>
                     <a href="{% url 'event_detail' event.pk %}" class="btn btn-info">View Details</a>
                 </li>
             {% empty %}

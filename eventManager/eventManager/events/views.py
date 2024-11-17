@@ -96,3 +96,13 @@ class EventUnregisterView(LoginRequiredMixin, View):
             messages.warning(request, "You are not registered for this event.")
 
         return redirect('event_detail', pk=pk)
+
+
+class UserRegisteredEventsView(LoginRequiredMixin, ListView):
+    model = Registration
+    template_name = "events/user-registered-events.html"
+    context_object_name = "registrations"
+    paginate_by = 5
+
+    def get_queryset(self):
+        return Registration.objects.filter(user=self.request.user).select_related('event')
