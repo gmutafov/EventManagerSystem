@@ -13,18 +13,25 @@
             <table class="table table-striped table-bordered">
                 <thead class="thead-dark">
                 <tr>
-                    <th scope="col">#</th>
+                    {% if user.is_staff %}
+                        <th scope="col">#</th>
+                    {% endif %}
                     <th scope="col">Event Name</th>
                     <th scope="col">Description</th>
                     <th scope="col">Date</th>
                     <th scope="col">Location</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col">Details</th>
+                    {% if user.is_staff %}
+                        <th scope="col">Actions</th>
+                    {% endif %}
                 </tr>
                 </thead>
                 <tbody>
                 {% for event in events %}
                     <tr>
-                        <th scope="row">{{ event.id }}</th>
+                        {% if user.is_staff %}
+                            <th scope="row">{{ event.id }}</th>
+                        {% endif %}
                         <td>
                             {% if event.title.split|length > 2 %}
                                 {{ event.title|truncatewords:2 }}
@@ -41,11 +48,17 @@
                         </td>
                         <td>{{ event.date|date:"F j, Y, g:i a" }}</td>
                         <td>{{ event.location }}</td>
-                        <td>
-                            <a id="edit" href="{% url 'event_edit' event.pk %}" class="btn btn-warning btn-sm">Edit</a>
-                            <br>
-                            <a id="delete-event" href="{% url 'event_delete' event.pk %}" class="btn btn-danger btn-sm">Delete</a>
-                        </td>
+                        <td><a href="{% url 'event_detail' event.pk %}" class="btn btn-info" style="margin: 10px">View
+                            Details</a></td>
+                        {% if user.is_staff %}
+                            <td>
+                                <a id="edit" href="{% url 'event_edit' event.pk %}"
+                                   class="btn btn-warning btn-sm">Edit</a>
+                                <br>
+                                <a id="delete-event" href="{% url 'event_delete' event.pk %}"
+                                   class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                        {% endif %}
                     </tr>
                 {% empty %}
                     <tr>

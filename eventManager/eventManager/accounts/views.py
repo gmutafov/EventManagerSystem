@@ -8,6 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from eventManager.accounts.forms import CustomUserCreationForm, CustomUserChangeForm
 from eventManager.accounts.models import AppUser
+from eventManager.events.models import Registration
 
 
 class RegisterView(CreateView):
@@ -38,9 +39,9 @@ class ProfileDetailView(LoginRequiredMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['event_count'] = self.request.user.events.count()  # Count of events related to the user
+        registered_events_count = Registration.objects.filter(user=self.request.user).count()
+        context['registered_events_count'] = registered_events_count
         return context
-
 
 class ProfileEditView(LoginRequiredMixin, UpdateView):
     model = AppUser

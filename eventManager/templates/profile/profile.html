@@ -15,7 +15,7 @@
                 <p><strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}</p>
                 <p><strong>Username:</strong> {{ user.username }}</p>
                 <p><strong>Email:</strong> {{ user.email }}</p>
-                <p><strong>Total Events Created:</strong> {{ event_count }}</p>
+                <p><strong>Total Registered Events:</strong> {{ registered_events_count }}</p>
             </div>
             <div class="profile-actions">
                 <a href="{% url 'profile_edit' %}" class="btn btn-primary" style="margin: 20px">Edit Profile</a>

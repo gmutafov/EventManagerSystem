@@ -8,19 +8,14 @@ from eventManager.events.models import Event, Registration
 # Register your models here.
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
-    # 1. List Display
     list_display = ('title', 'date', 'venue', 'organizer', 'created_at')
 
-    # 2. Search Fields
     search_fields = ('title', 'description', 'location', 'organizer__name', 'venue__name')
 
-    # 3. Filters
-    list_filter = ('date', 'venue', 'organizer')
+    list_filter = ('organizer', 'venue', 'date',)
 
-    # 4. Ordering
     ordering = ('date',)
 
-    # 5. Custom Actions
     actions = ['mark_as_cancelled']
 
     def mark_as_cancelled(self, request, queryset):
@@ -35,29 +30,26 @@ class EventAdmin(admin.ModelAdmin):
 class VenueAdmin(admin.ModelAdmin):
     list_display = ('name', 'location', 'capacity')
     search_fields = ('name', 'location')
+    list_filter = ('location',)
 
 
 @admin.register(Organizer)
 class OrganizerAdmin(admin.ModelAdmin):
     list_display = ('name', 'contact_info')
     search_fields = ('name', 'contact_info')
+    list_filter = ('name',)
 
 
 @admin.register(Registration)
 class RegistrationAdmin(admin.ModelAdmin):
-    # 1. List Display
     list_display = ('user', 'event', 'registration_date')
 
-    # 2. Filters
     list_filter = ('registration_date', 'event')
 
-    # 3. Search Fields
     search_fields = ('user__username', 'event__title')
 
-    # 4. Ordering
     ordering = ('registration_date',)
 
-    # 5. Custom Actions
     actions = ['delete_registrations']
 
     def delete_registrations(self, request, queryset):
