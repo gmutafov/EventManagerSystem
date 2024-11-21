@@ -7,6 +7,7 @@
         <h1>Upcoming Events</h1>
         <ul class="list-group">
             {% for event in events %}
+                {% if event.description != 'Cancelled' %}
                 <li class="list-group-item event-item">
                     <h2>
                         {% if event.title.split|length > 2 %}
@@ -16,7 +17,6 @@
                         {% endif %}
                     </h2>
 
-                    <!-- Description: Display ellipsis only if more than 20 words -->
                     <p id="description">
                         {% if event.description|length > 60 %}
                             {{ event.description|truncatechars:60 }}
@@ -29,6 +29,7 @@
                     <p><strong>Organizer:</strong> {{ event.organizer }}</p>
                     <a href="{% url 'event_detail' event.pk %}" class="btn btn-info">View Details</a>
                 </li>
+                {% endif %}
             {% empty %}
                 <li class="list-group-item">No upcoming events.</li>
             {% endfor %}

@@ -1,13 +1,13 @@
 from django.contrib import admin
+from unfold.admin import ModelAdmin
 
 from eventManager.accounts.models import AppUser
 from eventManager.common.models import Venue, Organizer
 from eventManager.events.models import Event, Registration
 
 
-# Register your models here.
 @admin.register(Event)
-class EventAdmin(admin.ModelAdmin):
+class EventAdmin(ModelAdmin):
     list_display = ('title', 'date', 'venue', 'organizer', 'created_at')
 
     search_fields = ('title', 'description', 'location', 'organizer__name', 'venue__name')
@@ -25,23 +25,22 @@ class EventAdmin(admin.ModelAdmin):
     mark_as_cancelled.short_description = "Mark selected events as Cancelled"
 
 
-# Register other models with minimal customization
 @admin.register(Venue)
-class VenueAdmin(admin.ModelAdmin):
+class VenueAdmin(ModelAdmin):
     list_display = ('name', 'location', 'capacity')
     search_fields = ('name', 'location')
     list_filter = ('location',)
 
 
 @admin.register(Organizer)
-class OrganizerAdmin(admin.ModelAdmin):
+class OrganizerAdmin(ModelAdmin):
     list_display = ('name', 'contact_info')
     search_fields = ('name', 'contact_info')
     list_filter = ('name',)
 
 
 @admin.register(Registration)
-class RegistrationAdmin(admin.ModelAdmin):
+class RegistrationAdmin(ModelAdmin):
     list_display = ('user', 'event', 'registration_date')
 
     list_filter = ('registration_date', 'event')
@@ -62,20 +61,15 @@ class RegistrationAdmin(admin.ModelAdmin):
 
 
 @admin.register(AppUser)
-class AppUserAdmin(admin.ModelAdmin):
-    # 1. List Display
+class AppUserAdmin(ModelAdmin):
     list_display = ('username', 'email', 'is_staff', 'is_active', 'date_joined')
 
-    # 2. Filters
     list_filter = ('is_staff', 'is_active', 'date_joined')
 
-    # 3. Search Fields
     search_fields = ('username', 'email')
 
-    # 4. Ordering
     ordering = ('date_joined',)
 
-    # 5. Custom Actions
     actions = ['activate_users', 'deactivate_users']
 
     def activate_users(self, request, queryset):
