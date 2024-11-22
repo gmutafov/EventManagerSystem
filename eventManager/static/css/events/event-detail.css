@@ -1,135 +1,69 @@
-/*!* General container for event details *!*/
-/*.event-detail {*/
-/*    padding: 15px; !* Increased padding for more space *!*/
-/*    background-color: #f8f9fa;*/
-/*    border-radius: 15px; !* Slightly larger border-radius *!*/
-/*    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); !* More pronounced shadow *!*/
-/*    margin-bottom: 40px; !* Increase the bottom margin for spacing *!*/
-/*}*/
-
-/*!* Title styling *!*/
-/*.event-title {*/
-/*    font-family: 'Roboto', sans-serif;*/
-/*    font-size: 2rem; !* Larger title for better prominence *!*/
-/*    color: #343a40;*/
-/*    font-weight: bold;*/
-/*    margin-bottom: 15px; !* Increase margin below the title *!*/
-/*}*/
-
-/*!* Description styling *!*/
-/*.event-description {*/
-/*    font-size: 1rem; !* Larger description font size *!*/
-/*    color: #495057;*/
-/*    margin-bottom: 20px; !* Increase space below description *!*/
-/*    font-style: italic;*/
-/*}*/
-
-/*!* Date and location styling *!*/
-/*.event-date,*/
-/*.event-location {*/
-/*    font-size: 1.25rem; !* Larger font size for date and location *!*/
-/*    color: #6c757d;*/
-/*    margin: 15px 0; !* Increase space between date/location *!*/
-/*}*/
-
-/*!* Image container for event image *!*/
-/*.event-image-container {*/
-/*    margin-top: 30px;*/
-/*    margin-bottom: 30px; !* Space around the image *!*/
-/*}*/
-
-/*.event-image {*/
-/*    max-width: 100%; !* Ensure the image takes full available width *!*/
-/*    border-radius: 10px; !* Larger border radius for image *!*/
-/*    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); !* Increased shadow for image *!*/
-/*}*/
-
-/*!* Responsive design for smaller screens *!*/
-/*@media (max-width: 768px) {*/
-/*    .event-detail {*/
-/*        padding: 30px; !* Slightly reduced padding on small screens *!*/
-/*    }*/
-/*    .event-title {*/
-/*        font-size: 2.5rem; !* Adjust title size for small screens *!*/
-/*    }*/
-/*    .event-description {*/
-/*        font-size: 1.25rem; !* Adjust description size for small screens *!*/
-/*    }*/
-/*    .event-date,*/
-/*    .event-location {*/
-/*        font-size: 1.125rem; !* Adjust font size for date/location *!*/
-/*    }*/
-/*}*/
-
-/* General container for event details */
 .event-detail {
-    padding: 10px; /* Increased padding for more space inside the container */
+    padding: 10px;
     background-color: #f8f9fa;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Pronounced shadow */
-    margin-bottom: 20px; /* Increased bottom margin for spacing */
-    max-width: 1250px; /* Limit the maximum width of the container */
-    width: 100%; /* Make the container full width, but within max-width */
-    margin-left: auto; /* Center the container horizontally */
-    margin-right: auto; /* Center the container horizontally */
-    word-wrap: break-word; /* Allow long words to wrap to the next line */
-    overflow-wrap: break-word; /* Ensure long words break */
-    text-align: center; /* Ensure the title is centered */
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    max-width: 1250px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
 }
 
-/* Title styling */
+
 .event-title {
     font-family: 'Roboto', sans-serif;
-    font-size: 2.5rem; /* Larger title for better prominence */
+    font-size: 2.5rem;
     color: #343a40;
     font-weight: bold;
-    margin-bottom: 30px; /* Increase margin below the title */
-    word-wrap: break-word; /* Handle long words inside the title */
-    overflow-wrap: break-word; /* Ensure long words break */
+    margin-bottom: 30px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
-/* Description styling */
 .event-description {
-    font-size: 1.6rem; /* Larger description font size */
+    font-size: 1.6rem;
     color: #495057;
-    margin-bottom: 25px; /* Increase space below description */
+    margin-bottom: 25px;
     font-style: italic;
 }
 
-/* Date and location styling */
 .event-date,
 .event-location {
-    font-size: 1.25rem; /* Larger font size for date and location */
+    font-size: 1.25rem;
     color: #6c757d;
-    margin: 20px 0; /* Increase space between date/location */
+    margin: 20px 0;
 }
 
-/* Image container for event image */
+
 .event-image-container {
     margin-top: 30px;
     margin-bottom: 30px; /* Space around the image */
 }
 
 .event-image {
-    max-width: 100%; /* Ensure the image takes full available width */
-    border-radius: 10px; /* Larger border radius for image */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Increased shadow for image */
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Responsive design for smaller screens */
+
 @media (max-width: 768px) {
     .event-detail {
-        padding: 30px; /* Slightly reduced padding on small screens */
+        padding: 30px;
     }
     .event-title {
-        font-size: 2.5rem; /* Adjust title size for small screens */
+        font-size: 2.5rem;
     }
     .event-description {
-        font-size: 1.25rem; /* Adjust description size for small screens */
+        font-size: 1.25rem;
     }
     .event-date,
     .event-location {
-        font-size: 1.125rem; /* Adjust font size for date/location */
+        font-size: 1.125rem;
     }
 }
 

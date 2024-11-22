@@ -1,4 +1,3 @@
-/* Container styling */
 .event-container {
     max-width: 1050px;
     margin: 40px auto;
@@ -8,7 +7,6 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-/* Heading style */
 h1 {
     font-family: 'Roboto', sans-serif;
     color: #333;
@@ -17,14 +15,12 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Centered button container */
 .button-container {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
 }
 
-/* Create New Event button style */
 .btn-primary {
     font-size: 1rem;
     padding: 10px 20px;
@@ -36,10 +32,9 @@ h1 {
 
 .btn-primary:hover {
     background-color: #004bbd;
-    transform: scale(1.05); /* Slightly enlarge on hover */
+    transform: scale(1.05);
 }
 
-/* Table styling */
 .table {
     margin-top: 20px;
     border-collapse: collapse;
@@ -63,9 +58,9 @@ h1 {
     text-align: center;
     border-bottom: 1px solid #e0e6ed;
     font-size: 0.95rem;
-    word-wrap: break-word; /* Enable text wrapping within cells */
-    white-space: normal; /* Allow text to break into multiple lines */
-    max-width: 200px; /* Adjust cell width to control wrap points */
+    word-wrap: break-word;
+    white-space: normal;
+    max-width: 200px;
 }
 
 .table-striped tbody tr:nth-of-type(odd) {

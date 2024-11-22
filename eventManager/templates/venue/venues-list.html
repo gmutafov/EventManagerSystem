@@ -3,13 +3,11 @@
     <div class="event-container mt-4">
         <h1 class="mb-4">Venues List</h1>
 
-        <!-- Centered Button Container -->
     {% if user.is_staff %}
         <div class="button-container">
             <a href="{% url 'create_venue' %}" class="btn btn-primary">Register New Venue</a>
         </div>
     {% endif %}
-        <!-- Event list table -->
         <div class="table-responsive">
             <table class="table table-striped table-bordered">
                 <thead class="thead-dark">

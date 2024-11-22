@@ -60,7 +60,6 @@ class CustomUserChangeForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        # Set placeholders for the fields
         self.fields['first_name'].widget.attrs.update({
             'placeholder': 'Enter your first name',
             'class': 'form-control'

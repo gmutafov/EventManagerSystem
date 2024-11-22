@@ -9,13 +9,12 @@ from eventManager.events.forms import EventCreateForm, EventEditForm, EventDelet
 from eventManager.events.models import Event, Registration
 
 
-# Create your views here.
 
 class EventCreateView(LoginRequiredMixin, CreateView):
     model = Event
     form_class = EventCreateForm
     template_name = 'events/create-event.html'
-    success_url = reverse_lazy('success')  # Redirect to the event list page after success
+    success_url = reverse_lazy('success')
 
     def form_valid(self, form):
         form.instance.created_by = self.request.user
@@ -35,7 +34,7 @@ class EventDeleteView(LoginRequiredMixin, DeleteView):
     model = Event
     form_class = EventDeleteForm
     template_name = 'events/delete-event.html'
-    success_url = reverse_lazy('success')  # Redirect to the event list page after success
+    success_url = reverse_lazy('success')
 
     def get_queryset(self):
         return Event.objects.filter(created_by=self.request.user)
@@ -72,11 +71,9 @@ class EventRegistrationView(LoginRequiredMixin, View):
     def post(self, request, pk, *args, **kwargs):
         event = get_object_or_404(Event, pk=pk)
 
-        # Check if the user is already registered
         if Registration.objects.filter(user=request.user, event=event).exists():
             messages.warning(request, "You are already registered for this event.")
         else:
-            # Create a new registration
             Registration.objects.create(user=request.user, event=event)
             messages.success(request, "You have successfully registered for this event!")
 
@@ -87,7 +84,6 @@ class EventUnregisterView(LoginRequiredMixin, View):
     def post(self, request, pk, *args, **kwargs):
         event = get_object_or_404(Event, pk=pk)
 
-        # Check if the user is registered
         registration = Registration.objects.filter(user=request.user, event=event).first()
         if registration:
             registration.delete()

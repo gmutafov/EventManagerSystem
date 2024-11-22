@@ -45,4 +45,4 @@ class Registration(models.Model):
         return f"{self.user.username} registered for {self.event.title}"
 
     class Meta:
-        unique_together = ('user', 'event')  # Prevent duplicate registrations
+        unique_together = ('user', 'event')

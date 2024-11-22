@@ -1,25 +1,3 @@
-{#{% extends 'common/base.html' %}#}
-{##}
-{#{% block content %}#}
-{#  <div class="container mt-5">#}
-{#    <div class="row justify-content-center">#}
-{#      <div class="col-md-8">#}
-{#        <div class="event-detail text-center">#}
-{#          <h1 class="event-title">{{ event.title }}</h1>#}
-{#          <p class="event-description">{{ event.description }}</p>#}
-{#          <p class="event-date"><strong>Date:</strong> {{ event.date|date:"F j, Y, g:i a" }}</p>#}
-{#          <p class="event-location"><strong>Location:</strong> {{ event.location }}</p>#}
-{##}
-{#          {% if event.image %}#}
-{#            <div class="event-image-container">#}
-{#              <img src="{{ event.image.url }}" alt="No Image" class="img-fluid event-image">#}
-{#            </div>#}
-{#          {% endif %}#}
-{#        </div>#}
-{#      </div>#}
-{#    </div>#}
-{#  </div>#}
-{#{% endblock %}#}
 {% extends 'common/base.html' %}
 
 {% block content %}

@@ -1,4 +1,3 @@
-/* General styling for both pages */
 .status-container {
     max-width: 600px;
     margin: 65px auto;
@@ -37,11 +36,11 @@ p {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Specific styling for success and error pages */
+
 .container h1.success-heading {
-    color: #4CAF50; /* Subtle green for success */
+    color: #4CAF50;
 }
 
 .container h1.error-heading {
-    color: #E74C3C; /* Subtle red for error */
+    color: #E74C3C;
 }

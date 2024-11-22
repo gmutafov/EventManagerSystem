@@ -1,6 +1,3 @@
-/* home.css */
-
-/* Center container horizontally and vertically */
 .home-container {
     display: flex;
     flex-direction: column;
@@ -10,12 +7,9 @@
     padding: 20px;
     text-align: center;
     width: 100%;
-    word-wrap: break-word; /* Enable text wrapping within cells */
-
-
+    word-wrap: break-word;
 }
 
-/* Ensure the list of events doesn't overflow */
 .home-container .list-group {
     max-width: 800px;
     width: 100%;
@@ -23,20 +17,16 @@
     margin-bottom: 20px;
 }
 
-/* Center the pagination controls */
 .home-container .pagination {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
 
-/* Style pagination links */
 .home-container .pagination .page-item .page-link {
-
     border-color: #ddd;
 }
 
-/* Custom styling to override bootstrap for active and disabled states */
 .pagination .page-item.active .page-link {
     background-color: #343a40;
     border-color: #fff;
@@ -49,7 +39,6 @@
     border-color: #ddd;
 }
 
-/* Styling for the event details and buttons */
 .home-container .list-group-item h2 {
     font-size: 1.5rem;
     font-weight: bold;
@@ -65,13 +54,11 @@
     border-color: #17a2b8;
 }
 
-/* Override default button style on hover */
 .home-container .list-group-item .btn-info:hover {
     background-color: dodgerblue;
     border-color: #138496;
 }
 
-/* Disable Bootstrap's button focus outline */
 .home-container .list-group-item .btn-info:focus {
     outline: none;
 }

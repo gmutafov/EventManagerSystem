@@ -1,5 +1,5 @@
 .custom-navbar {
-    background-color: #343a40 !important;  /* Dark background */
+    background-color: #343a40 !important;
     padding: 10px 0;
 }
 
@@ -8,7 +8,7 @@
 }
 
 .custom-navbar .navbar-nav .nav-link {
-    color: #fff !important;  /* White text */
+    color: #fff !important;
     margin-left: 15px;
     padding: 8px 16px;
     text-transform: uppercase;
@@ -35,31 +35,27 @@
 }
 
 .custom-navbar .navbar-nav form .logout-btn:hover {
-    color: #ddd !important; /* Lighter color on hover */
-    background-color: #444 !important; /* Darker background */
+    color: #ddd !important;
+    background-color: #444 !important;
 }
 
-/* Icon styling for login and register */
 .custom-navbar .navbar-nav .nav-link i {
     margin-right: 8px;
 }
 
-/* Ensure navbar brand stays at the left */
 .custom-navbar .navbar-brand {
     font-weight: bold;
     color: #fff !important;
 }
 
-/* Ensure the collapse navbar is right-aligned */
 .custom-navbar .collapse {
     justify-content: flex-end;
 }
 
-/* Additional hover effects for the toggle button (hamburger) */
 .custom-navbar .navbar-toggler-icon {
-    filter: brightness(0.8); /* Dim the icon */
+    filter: brightness(0.8);
 }
 
 .custom-navbar .navbar-toggler-icon:hover {
-    filter: brightness(1); /* Brighten on hover */
+    filter: brightness(1);
 }
