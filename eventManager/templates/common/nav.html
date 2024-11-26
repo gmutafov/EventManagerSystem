@@ -11,18 +11,18 @@
                     <a class="nav-link" href="{% url 'home' %}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'user_registered_events' %}">Registered Events</a>
+                    <a class="nav-link" href="{% url 'user-registered-events' %}">Registered Events</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'event_list' %}">Event List</a>
+                    <a class="nav-link" href="{% url 'event-list' %}">Event List</a>
                 </li>
                 {% if user.is_staff %}
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'venue_list' %}">Venue List</a>
+                        <a class="nav-link" href="{% url 'venue-list' %}">Venue List</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'organizer_list' %}">Organizer List</a>
+                        <a class="nav-link" href="{% url 'organizer-list' %}">Organizer List</a>
                     </li>
                 {% endif %}
                 <li class="nav-item">

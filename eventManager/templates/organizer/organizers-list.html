@@ -5,7 +5,7 @@
 
     {% if user.is_staff %}
         <div class="button-container">
-            <a href="{% url 'create_organizer' %}" class="btn btn-primary">Register New Organizer</a>
+            <a href="{% url 'create-organizer' %}" class="btn btn-primary">Register New Organizer</a>
         </div>
     {% endif %}
         <div class="table-responsive">
@@ -40,15 +40,14 @@
                             {% endif %}
                         </td>
                         <td>{{ organizer.contact_info }}</td>
-                        {% if user.is_staff %}
                             <td>
-                                <a id="edit" href="{% url 'edit_organizer' organizer.pk %}"
+                                <a id="edit" href="{% url 'edit-organizer' organizer.pk %}"
                                    class="btn btn-warning btn-sm">Edit</a>
                                 <br>
-                                <a id="delete-event" href="{% url 'delete_organizer' organizer.pk %}"
+                                <a id="delete-event" href="{% url 'delete-organizer' organizer.pk %}"
                                    class="btn btn-danger btn-sm">Delete</a>
                             </td>
-                        {% endif %}
+                        
                     </tr>
                 {% empty %}
                     <tr>

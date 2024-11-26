@@ -5,7 +5,7 @@
 
         {% if user.is_staff %}
             <div class="button-container">
-                <a href="{% url 'create_venue' %}" class="btn btn-primary">Register New Venue</a>
+                <a href="{% url 'create-venue' %}" class="btn btn-primary">Register New Venue</a>
             </div>
         {% endif %}
         <div class="table-responsive">
@@ -44,12 +44,14 @@
                         <td>{{ venue.available_from }}</td>
                         {% if user.is_staff %}
                             <td>
-                                <a href="{% url 'venue_details' venue.pk %}" class="btn btn-info" style="margin: ">View Details</a>
-                                <a id="edit" href="{% url 'edit_venue' venue.pk %}"
+                                <a id="edit" href="{% url 'edit-venue' venue.pk %}"
                                    class="btn btn-warning btn-sm">Edit</a>
                                 <br>
-                                <a id="delete-event" href="{% url 'delete_venue' venue.pk %}"
-                                   class="btn btn-danger btn-sm">Delete</a>
+                                <a id="delete-event" href="{% url 'delete-venue' venue.pk %}"
+                                   class="btn btn-danger btn-sm">Delete</a> <br>
+                                <a href="{% url 'venue-details' venue.pk %}" class="btn btn-info"
+                                   style="max-width: 75px; max-height: 50px; margin: 8px; padding: 0;">View Details</a>
+
                             </td>
                         {% endif %}
                     </tr>

@@ -20,12 +20,12 @@
 
                     {% if user.is_authenticated %}
                         {% if is_registered %}
-                            <form method="post" action="{% url 'event_unregister' event.pk %}">
+                            <form method="post" action="{% url 'event-unregister' event.pk %}">
                                 {% csrf_token %}
                                 <button id="event-unregister" type="submit" class="btn btn-danger">Unregister</button>
                             </form>
                         {% else %}
-                            <form method="post" action="{% url 'event_register' event.pk %}">
+                            <form method="post" action="{% url 'event-register' event.pk %}">
                                 {% csrf_token %}
                                 <button id="event-register" type="submit" class="btn btn-primary">Register</button>
                             </form>

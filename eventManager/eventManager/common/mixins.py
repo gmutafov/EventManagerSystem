@@ -1,8 +1,8 @@
-from django.http import HttpResponseForbidden
+from django.shortcuts import render
 
 
-class NotAuthorizedMixin:
+class StaffRequiredMixin:
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_staff:
-            return HttpResponseForbidden("You are not authorized to access this page.")
+            return render(request, 'common/user-not-staff.html', status=403)
         return super().dispatch(request, *args, **kwargs)

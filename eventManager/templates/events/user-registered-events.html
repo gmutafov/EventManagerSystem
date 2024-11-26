@@ -26,7 +26,7 @@
                     <p><strong>Date:</strong> {{ registration.event.date }}</p>
                     <p><strong>Venue:</strong> {{ registration.event.venue }}</p>
                     <p><strong>Organizer:</strong> {{ registration.event.organizer }}</p>
-                    <a href="{% url 'event_detail' registration.event.pk %}" class="btn btn-info">View Details</a>
+                    <a href="{% url 'event-detail' registration.event.pk %}" class="btn btn-info">View Details</a>
                 </li>
             {% empty %}
                 <li class="list-group-item">You are not Registered for any Events</li>

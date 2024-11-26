@@ -71,7 +71,7 @@ class EventRegistrationView(LoginRequiredMixin, View):
             Registration.objects.create(user=request.user, event=event)
             messages.success(request, "You have successfully registered for this event!")
 
-        return redirect('event_detail', pk=pk)
+        return redirect('event-detail', pk=pk)
 
 
 class EventUnregisterView(LoginRequiredMixin, View):
@@ -85,7 +85,7 @@ class EventUnregisterView(LoginRequiredMixin, View):
         else:
             messages.warning(request, "You are not registered for this event.")
 
-        return redirect('event_detail', pk=pk)
+        return redirect('event-detail', pk=pk)
 
 
 class UserRegisteredEventsView(LoginRequiredMixin, ListView):

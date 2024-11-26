@@ -1,12 +1,16 @@
+from abc import abstractstaticmethod
+
 from django.http import HttpResponseForbidden
 from django.urls import reverse_lazy
 from django.views.generic import ListView, TemplateView, UpdateView, CreateView, DeleteView, DetailView
 
 from eventManager.common.forms import OrganizerForm, VenueForm
-from eventManager.common.mixins import NotAuthorizedMixin
+from eventManager.common.mixins import StaffRequiredMixin
 from eventManager.common.models import Venue, Organizer
 from eventManager.events.models import Event
 from datetime import date
+
+
 
 class HomePageView(ListView):
     model = Event
@@ -29,10 +33,7 @@ class AboutPageView(TemplateView):
 
 
 class VenueListView(ListView):
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_staff:
-            return HttpResponseForbidden("You are not authorized to access this page.")
-        return super().dispatch(request, *args, **kwargs)
+
 
     model = Venue
     template_name = 'venue/venues-list.html'
@@ -40,55 +41,35 @@ class VenueListView(ListView):
 
 
 
-class OrganizerListView(ListView):
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_staff:
-            return HttpResponseForbidden("You are not authorized to access this page.")
-        return super().dispatch(request, *args, **kwargs)
+class OrganizerListView(StaffRequiredMixin, ListView):
 
     model = Organizer
     template_name = 'organizer/organizers-list.html'
     context_object_name = 'organizers'
 
-class VenueUpdateView(UpdateView):
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_staff:
-            return HttpResponseForbidden("You are not authorized to access this page.")
-        return super().dispatch(request, *args, **kwargs)
+class VenueUpdateView(StaffRequiredMixin, UpdateView):
 
     model = Venue
     form_class = VenueForm
     template_name = 'venue/venue-edit.html'
-    success_url = reverse_lazy('venue-list')
+    success_url = reverse_lazy('success')
 
-class OrganizerUpdateView(UpdateView):
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_staff:
-            return HttpResponseForbidden("You are not authorized to access this page.")
-        return super().dispatch(request, *args, **kwargs)
+class OrganizerUpdateView(StaffRequiredMixin, UpdateView):
 
     model = Organizer
     form_class = OrganizerForm
     template_name = 'organizer/organizer-edit.html'
-    success_url = reverse_lazy('organizer_list')
+    success_url = reverse_lazy('success')
 
 
-class VenueCreateView(CreateView):
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_staff:
-            return HttpResponseForbidden("You are not authorized to access this page.")
-        return super().dispatch(request, *args, **kwargs)
+class VenueCreateView(StaffRequiredMixin, CreateView):
 
     model = Venue
     form_class = VenueForm
     template_name = 'venue/venue-create.html'
     success_url = reverse_lazy('success')
 
-class OrganizerCreateView(CreateView):
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_staff:
-            return HttpResponseForbidden("You are not authorized to access this page.")
-        return super().dispatch(request, *args, **kwargs)
+class OrganizerCreateView(StaffRequiredMixin, CreateView):
 
     model = Organizer
     form_class = OrganizerForm
@@ -96,33 +77,21 @@ class OrganizerCreateView(CreateView):
     success_url = reverse_lazy('success')
 
 
-class OrganizerDeleteView(DeleteView):
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_staff:
-            return HttpResponseForbidden("You are not authorized to access this page.")
-        return super().dispatch(request, *args, **kwargs)
+class OrganizerDeleteView(StaffRequiredMixin, DeleteView):
 
     model = Organizer
     template_name = 'organizer/organizer-delete.html'
     success_url = reverse_lazy('success')
 
 
-class VenueDeleteView(DeleteView):
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_staff:
-            return HttpResponseForbidden("You are not authorized to access this page.")
-        return super().dispatch(request, *args, **kwargs)
+class VenueDeleteView(StaffRequiredMixin, DeleteView):
 
     model = Venue
     template_name = 'venue/venue-delete.html'
     success_url = reverse_lazy('success')
 
 
-class VenueDetailView(DetailView):
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_staff:
-            return HttpResponseForbidden("You are not authorized to access this page.")
-        return super().dispatch(request, *args, **kwargs)
+class VenueDetailView(StaffRequiredMixin, DetailView):
 
     model = Venue
     template_name = 'venue/venue-details.html'

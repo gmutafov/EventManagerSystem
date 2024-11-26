@@ -27,7 +27,7 @@
                     <p><strong>Date:</strong> {{ event.date }}</p>
                     <p><strong>Venue:</strong> {{ event.venue }}</p>
                     <p><strong>Organizer:</strong> {{ event.organizer }}</p>
-                    <a href="{% url 'event_detail' event.pk %}" class="btn btn-info">View Details</a>
+                    <a href="{% url 'event-detail' event.pk %}" class="btn btn-info">View Details</a>
                 </li>
                 {% endif %}
             {% empty %}
