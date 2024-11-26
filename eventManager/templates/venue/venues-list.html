@@ -3,11 +3,11 @@
     <div class="event-container mt-4">
         <h1 class="mb-4">Venues List</h1>
 
-    {% if user.is_staff %}
-        <div class="button-container">
-            <a href="{% url 'create_venue' %}" class="btn btn-primary">Register New Venue</a>
-        </div>
-    {% endif %}
+        {% if user.is_staff %}
+            <div class="button-container">
+                <a href="{% url 'create_venue' %}" class="btn btn-primary">Register New Venue</a>
+            </div>
+        {% endif %}
         <div class="table-responsive">
             <table class="table table-striped table-bordered">
                 <thead class="thead-dark">
@@ -44,6 +44,7 @@
                         <td>{{ venue.available_from }}</td>
                         {% if user.is_staff %}
                             <td>
+                                <a href="{% url 'venue_details' venue.pk %}" class="btn btn-info" style="margin: ">View Details</a>
                                 <a id="edit" href="{% url 'edit_venue' venue.pk %}"
                                    class="btn btn-warning btn-sm">Edit</a>
                                 <br>

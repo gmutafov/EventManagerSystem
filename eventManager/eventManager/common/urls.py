@@ -11,6 +11,7 @@ urlpatterns = [
     path('venue/<int:pk>/', include([
         path('edit/', views.VenueUpdateView.as_view(), name='edit_venue'),
         path('delete/', views.VenueDeleteView.as_view(), name='delete_venue'),
+        path('details/', views.VenueDetailView.as_view(), name='venue_details'),
     ]))
     ,
     # Organizer URLs
