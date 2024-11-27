@@ -34,7 +34,6 @@ class AboutPageView(TemplateView):
 
 class VenueListView(ListView):
 
-
     model = Venue
     template_name = 'venue/venues-list.html'
     context_object_name = 'venues'
@@ -96,3 +95,9 @@ class VenueDetailView(StaffRequiredMixin, DetailView):
     model = Venue
     template_name = 'venue/venue-details.html'
     context_object_name = 'venue'
+
+class OrganizerDetailView(StaffRequiredMixin, DetailView):
+
+    model = Organizer
+    template_name = 'organizer/organizer-details.html'
+    context_object_name = 'organizer'

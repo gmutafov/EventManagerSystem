@@ -20,6 +20,7 @@ urlpatterns = [
     path('organizers/', views.OrganizerListView.as_view(), name='organizer-list'),
     path('organizers/create/', views.OrganizerCreateView.as_view(), name='create-organizer'),
     path('organizer/<int:pk>/', include([
+        path('details/', views.OrganizerDetailView.as_view(), name='organizer-details'),
         path('edit/', views.OrganizerUpdateView.as_view(), name='edit-organizer'),
         path('delete/', views.OrganizerDeleteView.as_view(), name='delete-organizer'),
     ]))
