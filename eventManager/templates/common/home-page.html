@@ -4,6 +4,7 @@
 
 {% block content %}
     <div class="container home-container">
+    {% include 'common/search-form.html' %}
         <h1>Upcoming Events</h1>
         <ul class="list-group">
             {% for event in events %}

@@ -2,7 +2,7 @@ from django.urls import path, include
 from eventManager.events import views
 
 urlpatterns = [
-    path('create/', views.EventCreateView.as_view(), name='create_event'),
+    path('create/', views.EventCreateView.as_view(), name='create-event'),
     path('event-list/', views.EventListView.as_view(), name='event-list'),
     path('my-registered-events/', views.UserRegisteredEventsView.as_view(), name='user-registered-events'),
     path('<int:pk>/', include([

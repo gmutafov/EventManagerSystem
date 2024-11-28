@@ -51,7 +51,7 @@ class EventDetailView(DetailView):
 
         return context
 
-class EventListView(LoginRequiredMixin, ListView):
+class EventListView(ListView):
     model = Event
     template_name = 'events/event-list.html'
     context_object_name = 'events'
