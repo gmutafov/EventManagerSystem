@@ -1,5 +1,6 @@
 from abc import abstractstaticmethod
 
+from django.db.models import Q
 from django.http import HttpResponseForbidden
 from django.urls import reverse_lazy
 from django.views.generic import ListView, TemplateView, UpdateView, CreateView, DeleteView, DetailView
@@ -18,14 +19,16 @@ class HomePageView(ListView):
     paginate_by = 3
 
     def get_queryset(self):
-        queryset =self.model.objects.all()
-        if 'query' in self.request.GET:
-            query = self.request.GET.get('query')
-            queryset = self.queryset.filter(title__icontains=query)
-            return queryset
+        queryset = Event.objects.filter(date__gte=date.today()).order_by("date")
 
-        return Event.objects.filter(date__gte=date.today()).order_by("date")
-
+        query = self.request.GET.get('q')
+        if query:
+            queryset = queryset.filter(
+                Q(title__icontains=query) |
+                Q(description__icontains=query) |
+                Q(location__icontains=query)
+            )
+        return queryset
 
 class SuccessView(TemplateView):
     template_name = 'common/success-page.html'

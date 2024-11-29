@@ -4,32 +4,33 @@
 
 {% block content %}
     <div class="container home-container">
-    {% include 'common/search-form.html' %}
         <h1>Upcoming Events</h1>
+        {% include 'common/search-form.html' %}
+
         <ul class="list-group">
             {% for event in events %}
                 {% if event.description != 'Cancelled' %}
-                <li class="list-group-item event-item">
-                    <h2>
-                        {% if event.title.split|length > 2 %}
-                            {{ event.title|truncatewords:2 }}
-                        {% else %}
-                            {{ event.title }}
-                        {% endif %}
-                    </h2>
+                    <li class="list-group-item event-item">
+                        <h2>
+                            {% if event.title.split|length > 2 %}
+                                {{ event.title|truncatewords:2 }}
+                            {% else %}
+                                {{ event.title }}
+                            {% endif %}
+                        </h2>
 
-                    <p id="description">
-                        {% if event.description|length > 60 %}
-                            {{ event.description|truncatechars:60 }}
-                        {% else %}
-                            {{ event.description }}
-                        {% endif %}
-                    </p>
-                    <p><strong>Date:</strong> {{ event.date }}</p>
-                    <p><strong>Venue:</strong> {{ event.venue }}</p>
-                    <p><strong>Organizer:</strong> {{ event.organizer }}</p>
-                    <a href="{% url 'event-detail' event.pk %}" class="btn btn-info">View Details</a>
-                </li>
+                        <p id="description">
+                            {% if event.description|length > 60 %}
+                                {{ event.description|truncatechars:60 }}
+                            {% else %}
+                                {{ event.description }}
+                            {% endif %}
+                        </p>
+                        <p><strong>Date:</strong> {{ event.date }}</p>
+                        <p><strong>Venue:</strong> {{ event.venue }}</p>
+                        <p><strong>Organizer:</strong> {{ event.organizer }}</p>
+                        <a href="{% url 'event-detail' event.pk %}" class="btn btn-info">View Details</a>
+                    </li>
                 {% endif %}
             {% empty %}
                 <li class="list-group-item">No upcoming events.</li>
