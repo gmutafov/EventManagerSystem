@@ -2,4 +2,4 @@ eventManager/.venv
 eventManager/.idea
 eventManager/eventManager/.env
 .idea
-eventManager/eventManager/__pycache__
+__pycache__/
