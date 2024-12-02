@@ -1,9 +1,14 @@
 {% extends 'common/base.html' %}
+{% load accounts_tags %}
+{% load home_page_tags %}
+
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
     <div class="container home-container">
+    <h4>{% greeting request.user %}</h4>
+    <h5>Total Events: {% total_events %}</h5>
         <h1>Upcoming Events</h1>
         {% include 'common/search-form.html' %}
 

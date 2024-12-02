@@ -1,4 +1,5 @@
 {% extends 'common/base.html' %}
+{% load events_tags %}
 
 {% block content %}
 <div class="container mt-5">
@@ -7,7 +8,7 @@
             <div class="event-detail text-center">
                 <h1 class="event-title">{{ event.title }}</h1>
                 <p class="event-description">{{ event.description }}</p>
-                <p class="event-date"><strong>Date:</strong> {{ event.date|date:"F j, Y, g:i a" }}</p>
+                <p class="event-date"><strong>Date:</strong> {{ event.date|format_event_date }}</p>
                 <p class="event-location"><strong>Location:</strong> {{ event.location }}</p>
 
                 {% if event.image %}
