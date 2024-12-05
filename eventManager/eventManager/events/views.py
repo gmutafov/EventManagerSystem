@@ -42,8 +42,10 @@ class EventDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         event = self.get_object()
+        registrations_count = Registration.objects.filter(event=event).count()
+        remaining_capacity = event.venue.capacity - registrations_count
+        context['remaining_capacity'] = remaining_capacity
 
-        # Pass registration status to the template
         if self.request.user.is_authenticated:
             context['is_registered'] = event.registrations.filter(user=self.request.user).exists()
         else:
@@ -64,15 +66,18 @@ class EventListView(ListView):
 class EventRegistrationView(LoginRequiredMixin, View):
     def post(self, request, pk, *args, **kwargs):
         event = get_object_or_404(Event, pk=pk)
+        registrations_count = Registration.objects.filter(event=event).count()
 
-        if Registration.objects.filter(user=request.user, event=event).exists():
-            messages.warning(request, "You are already registered for this event.")
+        if registrations_count >= event.venue.capacity:
+            messages.warning(request, "This event is full. Registration is not allowed.")
         else:
-            Registration.objects.create(user=request.user, event=event)
-            messages.success(request, "You have successfully registered for this event!")
+            if Registration.objects.filter(user=request.user, event=event).exists():
+                messages.warning(request, "You are already registered for this event.")
+            else:
+                Registration.objects.create(user=request.user, event=event)
+                messages.success(request, "You have successfully registered for this event!")
 
         return redirect('event-detail', pk=pk)
-
 
 class EventUnregisterView(LoginRequiredMixin, View):
     def post(self, request, pk, *args, **kwargs):
