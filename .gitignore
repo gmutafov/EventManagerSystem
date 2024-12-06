@@ -1,4 +1,4 @@
 .venv
 .idea
-eventManager/.env
+.env
 eventManager/__pycache__
