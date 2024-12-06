@@ -5,12 +5,13 @@ from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import DetailView, CreateView, UpdateView, DeleteView, ListView
 
-from eventManager.events.forms import EventCreateForm, EventEditForm, EventDeleteForm, EventDetailsForm
+from eventManager.common.mixins import StaffRequiredMixin
+from eventManager.events.forms import EventCreateForm, EventEditForm, EventDeleteForm
 from eventManager.events.models import Event, Registration
 
 
 
-class EventCreateView(LoginRequiredMixin, CreateView):
+class EventCreateView(StaffRequiredMixin, LoginRequiredMixin, CreateView):
     model = Event
     form_class = EventCreateForm
     template_name = 'events/create-event.html'
@@ -20,14 +21,14 @@ class EventCreateView(LoginRequiredMixin, CreateView):
         form.instance.created_by = self.request.user
         return super().form_valid(form)
 
-class EventUpdateView(LoginRequiredMixin, UpdateView):
+class EventUpdateView(StaffRequiredMixin, LoginRequiredMixin, UpdateView):
     model = Event
     form_class = EventEditForm
     template_name = 'events/edit-event.html'
     success_url = reverse_lazy('success')
 
 
-class EventDeleteView(LoginRequiredMixin, DeleteView):
+class EventDeleteView(StaffRequiredMixin, LoginRequiredMixin, DeleteView):
     model = Event
     form_class = EventDeleteForm
     template_name = 'events/delete-event.html'

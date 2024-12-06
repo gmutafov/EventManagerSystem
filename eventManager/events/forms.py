@@ -34,13 +34,5 @@ class EventDeleteForm(forms.Form):
         return confirm
 
 
-class EventDetailsForm(forms.ModelForm):
-    class Meta:
-        model = Event
-        fields = ['title', 'description', 'date', 'location', 'image']
-        widgets = {
-            'date': forms.DateTimeInput(attrs={'type': 'datetime-local', 'disabled': True}),
-        }
-        readonly_fields = ['title', 'description', 'date', 'location', 'image']
 
 

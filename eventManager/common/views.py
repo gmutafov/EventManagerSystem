@@ -1,5 +1,6 @@
 from abc import abstractstaticmethod
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.http import HttpResponseForbidden
 from django.urls import reverse_lazy
@@ -42,7 +43,7 @@ class AboutPageView(TemplateView):
     template_name = 'common/about.html'
 
 
-class VenueListView(ListView):
+class VenueListView(StaffRequiredMixin, ListView):
     model = Venue
     template_name = 'venue/venues-list.html'
     context_object_name = 'venues'
