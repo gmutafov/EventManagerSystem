@@ -1,5 +1,4 @@
-eventManager/.venv
-eventManager/.idea
-eventManager/eventManager/.env
+.venv
 .idea
-eventManager/eventManager/__pycache__
+eventManager/.env
+eventManager/__pycache__
