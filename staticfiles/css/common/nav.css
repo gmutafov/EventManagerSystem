@@ -1,0 +1,61 @@
+.custom-navbar {
+    background-color: #343a40 !important;
+    padding: 10px 0;
+}
+
+.custom-navbar .navbar-nav {
+    margin-left: auto;
+}
+
+.custom-navbar .navbar-nav .nav-link {
+    color: #fff !important;
+    margin-left: 15px;
+    padding: 8px 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: color 0.3s, background-color 0.3s ease;
+}
+
+.custom-navbar .navbar-nav .nav-link:hover {
+    color: #ddd !important;
+    background-color: #555 !important;
+}
+
+
+.custom-navbar .navbar-nav form .logout-btn {
+    border: none !important;
+    background-color: transparent !important;
+    color: #fff !important;
+    padding: 8px 16px !important;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s, background-color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.custom-navbar .navbar-nav form .logout-btn:hover {
+    color: #ddd !important;
+    background-color: #444 !important;
+}
+
+.custom-navbar .navbar-nav .nav-link i {
+    margin-right: 8px;
+}
+
+.custom-navbar .navbar-brand {
+    font-weight: bold;
+    color: #fff !important;
+}
+
+.custom-navbar .collapse {
+    justify-content: flex-end;
+}
+
+.custom-navbar .navbar-toggler-icon {
+    filter: brightness(0.8);
+}
+
+.custom-navbar .navbar-toggler-icon:hover {
+    filter: brightness(1);
+}

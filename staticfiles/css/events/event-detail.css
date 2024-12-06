@@ -1,0 +1,72 @@
+.event-detail {
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    max-width: 1250px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
+}
+
+
+.event-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5rem;
+    color: #343a40;
+    font-weight: bold;
+    margin-bottom: 30px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.event-description {
+    font-size: 1.6rem;
+    color: #495057;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+.event-date,
+.event-location {
+    font-size: 1.25rem;
+    color: #6c757d;
+    margin: 20px 0;
+}
+
+
+.event-image-container {
+    margin-top: 30px;
+    margin-bottom: 30px; /* Space around the image */
+}
+
+.event-image {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+@media (max-width: 768px) {
+    .event-detail {
+        padding: 30px;
+    }
+    .event-title {
+        font-size: 2.5rem;
+    }
+    .event-description {
+        font-size: 1.25rem;
+    }
+    .event-date,
+    .event-location {
+        font-size: 1.125rem;
+    }
+}
+
+#event-register, #event-unregister{
+    max-width: 780px;
+}
