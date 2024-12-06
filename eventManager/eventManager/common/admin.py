@@ -51,13 +51,6 @@ class RegistrationAdmin(ModelAdmin):
 
     actions = ['delete_registrations']
 
-    def delete_registrations(self, request, queryset):
-        count = queryset.count()
-        queryset.delete()
-        self.message_user(request, f"{count} registrations were successfully deleted.")
-
-    delete_registrations.short_description = "Delete selected registrations"
-
 
 
 @admin.register(AppUser)

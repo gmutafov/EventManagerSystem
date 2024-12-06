@@ -16,7 +16,7 @@ class Event(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    image = models.URLField()
+    image = models.ImageField(blank=True, null=True, upload_to='event_images/')
     venue = models.ForeignKey(Venue, on_delete=models.CASCADE, related_name='events')
     organizer = models.ForeignKey(Organizer, on_delete=models.CASCADE, related_name='events')
 
