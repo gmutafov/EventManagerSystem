@@ -180,5 +180,4 @@ class Migration(migrations.Migration):
         ('common', '0001_initial'),
     ]
 
-    operations = [
-    ]
+    operations = [migrations.RunPython(populate_data)]
