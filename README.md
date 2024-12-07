@@ -1,6 +1,7 @@
 # EventManagerSystem
-_A project for my Django Advanced Course in SoftUni._
-Deployed at: https://eventmanager-d5hwhfepdrb9h8a7.italynorth-01.azurewebsites.net
+_A project for my Django Advanced Course at SoftUni._
+
+- Deployed at: https://eventmanager-d5hwhfepdrb9h8a7.italynorth-01.azurewebsites.net
 
 📖 Overview
 The Event Management System is a Django-based web application designed to simplify the creation, organization, and management of events. It enables users to register for events, staff to create events, book venues, and collaborate with organizers, all through a user-friendly interface.
