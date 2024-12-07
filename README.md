@@ -26,7 +26,6 @@ Venue and Organizer Models:
 Responsive Design:
 
 Fully responsive UI powered by Bootstrap.
-Navigation bar with icons for login/logout.
 
 🧑‍💻 Tech Stack
 - Backend: Django, Python
