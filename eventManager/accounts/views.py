@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth import login, get_user_model, logout
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import redirect
@@ -26,6 +27,10 @@ class RegisterView(CreateView):
 
 class UserLoginView(LoginView):
     template_name = "registration/login.html"
+
+    def form_invalid(self, form):
+        messages.error(self.request, "The username or password is incorrect.")
+        return super().form_invalid(form)
 
 class ProfileDetailView(LoginRequiredMixin, DetailView):
     model = AppUser
