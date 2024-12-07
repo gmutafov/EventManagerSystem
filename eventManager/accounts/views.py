@@ -47,20 +47,20 @@ class ProfileEditView(LoginRequiredMixin, UpdateView):
     model = AppUser
     form_class = CustomUserChangeForm
     template_name = 'profile/profile-edit.html'
-    success_url = reverse_lazy('profile')  # Redirect to profile page after saving changes
+    success_url = reverse_lazy('profile')
 
     def get_object(self, queryset=None):
-        return self.request.user  # Get the current logged-in user
+        return self.request.user
 
 
 class ProfileDeleteView(DeleteView):
     model = get_user_model()
     template_name = 'profile/profile-delete.html'
     context_object_name = 'user'
-    success_url = reverse_lazy('home')  # Redirect to home page after successful deletion
+    success_url = reverse_lazy('home')
 
     def get_object(self):
-        return self.request.user  # Only the current logged-in user's profile can be deleted
+        return self.request.user
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()

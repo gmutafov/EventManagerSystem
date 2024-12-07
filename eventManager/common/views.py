@@ -1,11 +1,9 @@
-from abc import abstractstaticmethod
+from logging import raiseExceptions
 
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
-from django.http import HttpResponseForbidden
+from django.http import Http404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, TemplateView, UpdateView, CreateView, DeleteView, DetailView
-
 from eventManager.common.forms import OrganizerForm, VenueForm
 from eventManager.common.mixins import StaffRequiredMixin
 from eventManager.common.models import Venue, Organizer
