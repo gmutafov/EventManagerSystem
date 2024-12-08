@@ -27,6 +27,7 @@ class RegisterView(CreateView):
 
 class UserLoginView(LoginView):
     template_name = "registration/login.html"
+    context_object_name = 'login'
 
     def form_invalid(self, form):
         messages.error(self.request, "The username or password is incorrect.")
