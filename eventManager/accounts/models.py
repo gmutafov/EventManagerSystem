@@ -19,6 +19,7 @@ class AppUser(AbstractUser):
         validators=[validate_capitalized,
                     only_letters]
     )
+    email = models.EmailField()
     bio = models.TextField(blank=True)
     profile_picture = models.URLField(blank=True, null=True)
 

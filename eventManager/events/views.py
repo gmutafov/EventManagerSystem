@@ -1,10 +1,12 @@
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.mail import send_mail
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import DetailView, CreateView, UpdateView, DeleteView, ListView
 
+from eventManager import settings
 from eventManager.common.mixins import StaffRequiredMixin
 from eventManager.events.forms import EventCreateForm, EventEditForm, EventDeleteForm
 from eventManager.events.models import Event, Registration
@@ -78,6 +80,13 @@ class EventRegistrationView(LoginRequiredMixin, View):
                 Registration.objects.create(user=request.user, event=event)
                 messages.success(request, "You have successfully registered for this event!")
 
+                send_mail(
+                    subject=f'Registration Confirmed: {event.title}',
+                    message= f"Hi {request.user.first_name},\n\nYou have successfully registered for {event.title}",
+                    from_email=settings.SENDER_EMAIL,
+                    recipient_list=[request.user.email]
+                )
+
         return redirect('event-detail', pk=pk)
 
 class EventUnregisterView(LoginRequiredMixin, View):
@@ -88,6 +97,12 @@ class EventUnregisterView(LoginRequiredMixin, View):
         if registration:
             registration.delete()
             messages.success(request, "You have successfully unregistered from this event.")
+            send_mail(
+                subject=f'Unregistration Confirmed: {event.title}',
+                message=f"Hi {request.user.first_name},\n\nYou have successfully unregistered for {event.title}.",
+                from_email=settings.SENDER_EMAIL,
+                recipient_list=[request.user.email]
+            )
         else:
             messages.warning(request, "You are not registered for this event.")
 
