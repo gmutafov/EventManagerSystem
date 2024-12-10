@@ -33,7 +33,7 @@ git clone https://github.com/gmutafov/EventManagerSystem.git
 **5. Run the migration**
  ```bash
 
-  python manage.py migrate`
+  python manage.py migrate
 ```
 **6. Run the project**
   ```bash
