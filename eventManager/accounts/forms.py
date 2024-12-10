@@ -4,19 +4,13 @@ from eventManager.accounts.models import AppUser
 
 
 class CustomUserCreationForm(UserCreationForm):
-    first_name = forms.CharField(max_length=30, required=True, label='First Name')
-    last_name = forms.CharField(max_length=30, required=True, label='Last Name')
-    email = forms.EmailField(required=True)
-    profile_picture = forms.URLField(required=False)
-
     class Meta:
         model = AppUser
-        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'profile_picture']
+        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'profile_picture', 'bio']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        # Set placeholders for the fields
         self.fields['username'].widget.attrs.update({
             'placeholder': 'Enter your username',
             'class': 'form-control'
@@ -45,21 +39,35 @@ class CustomUserCreationForm(UserCreationForm):
             'placeholder': 'Profile picture URL (optional)',
             'class': 'form-control'
         })
+        self.fields['bio'].widget.attrs.update({
+            'placeholder': 'Info (optional)',
+            'class': 'form-control'
+        })
 
-        # Removing help texts
+
         self.fields['username'].help_text = None
         self.fields['password1'].help_text = None
         self.fields['password2'].help_text = None
 
 
+
 class CustomUserChangeForm(forms.ModelForm):
+    old_password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'placeholder': 'Enter your old password', 'class': 'form-control'}),
+        required=False
+    )
+    new_password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'placeholder': 'Enter your new password', 'class': 'form-control'}),
+        required=False
+    )
+
+
     class Meta:
         model = AppUser
         fields = ['profile_picture', 'first_name', 'last_name', 'email']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-
         self.fields['first_name'].widget.attrs.update({
             'placeholder': 'Enter your first name',
             'class': 'form-control'
@@ -76,3 +84,28 @@ class CustomUserChangeForm(forms.ModelForm):
             'placeholder': 'Profile picture URL (optional)',
             'class': 'form-control'
         })
+
+    def clean(self):
+        cleaned_data = super().clean()
+        old_password = cleaned_data.get('old_password')
+        new_password = cleaned_data.get('new_password')
+
+
+        if old_password or new_password:
+            if not old_password:
+                self.add_error('old_password', 'Old password is required.')
+            elif not self.instance.check_password(old_password):
+                self.add_error('old_password', 'The old password is incorrect.')
+            if not new_password:
+                self.add_error('new_password', 'New password is required.')
+
+        return cleaned_data
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        new_password = self.cleaned_data.get('new_password')
+        if new_password:
+            user.set_password(new_password)
+        if commit:
+            user.save()
+        return user

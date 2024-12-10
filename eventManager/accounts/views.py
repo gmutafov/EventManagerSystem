@@ -60,10 +60,10 @@ class ProfileEditView(LoginRequiredMixin, UpdateView):
 
 
 class ProfileDeleteView(DeleteView):
-    model = get_user_model()
+    model = AppUser
     template_name = 'profile/profile-delete.html'
     context_object_name = 'user'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('success')
 
     def get_object(self):
         return self.request.user

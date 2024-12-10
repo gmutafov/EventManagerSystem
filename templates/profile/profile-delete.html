@@ -7,6 +7,7 @@
         <h1>Are you sure you want to delete your profile?</h1>
         <p>This action is permanent and cannot be undone.</p>
         <form method="post" class="button-container">
+            {{ form }}
             {% csrf_token %}
             <button id="delete-profile" type="submit" class="btn btn-danger">Yes, Delete My Profile</button>
         </form>

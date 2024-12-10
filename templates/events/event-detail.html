@@ -11,7 +11,7 @@
                     <p class="event-date"><strong>Date:</strong> {{ event.date|format_event_date }}</p>
                     <p class="event-location"><strong>Location:</strong> {{ event.location }}</p>
                     <p class="event-location"><strong>Venue</strong>: {{ event.venue.name }}</p>
-                    <p class="event-location"><strong>Remaining Capacity</strong>: {{ remaining_capacity }}</p>
+                    <p class="event-location"><strong>Available Spots</strong>: {{ remaining_capacity }}</p>
                     {% if event.image %}
                         <div class="event-image-container">
                             <img src="{{ event.image }}" alt="No Image" class="img-fluid event-image">

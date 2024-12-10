@@ -3,53 +3,63 @@
 {% block title %}Edit Profile{% endblock %}
 
 {% block content %}
-  <div class="profile-edit-container">
-    <h2>Edit Profile</h2>
-    <form method="POST">
-        {% csrf_token %}
+    <div class="profile-edit-container">
+        <h2>Edit Profile</h2>
+        <form method="POST">
+            {% csrf_token %}
 
-        <div class="form-group">
-            <label for="id_first_name">First Name:</label>
-            {{ form.first_name }}
-        </div>
+            <div class="form-group">
+                <label for="id_first_name">First Name:</label>
+                {{ form.first_name }}
+            </div>
 
-        <div class="form-group">
-            <label for="id_last_name">Last Name:</label>
-            {{ form.last_name }}
-        </div>
+            <div class="form-group">
+                <label for="id_last_name">Last Name:</label>
+                {{ form.last_name }}
+            </div>
 
-        <div class="form-group">
-            <label for="id_email">Email:</label>
-            {{ form.email }}
-        </div>
+            <div class="form-group">
+                <label for="id_email">Email:</label>
+                {{ form.email }}
+            </div>
+            <div class="form-group">
+                <label for="id_email">Old Password:</label>
+                {{ form.old_password }}
+            </div>
+            <div class="form-group">
+                <label for="id_email">New Password:</label>
+                {{ form.new_password }}
+            </div>
 
-        <div class="form-group">
-            <label for="id_profile_picture">Profile Picture URL:</label>
-            {% if form.profile_picture.value %}
-                <div class="current-image mb-2">
-                        <img src="{{ form.profile_picture.value }}" alt="Current Profile Picture" style="max-width: 100px; max-height: 100px;">
+
+            <div class="form-group">
+                <label for="id_profile_picture">Profile Picture URL:</label>
+                {% if form.profile_picture.value %}
+                    <div class="current-image mb-2">
+                        <img src="{{ form.profile_picture.value }}" alt="Current Profile Picture"
+                             style="max-width: 100px; max-height: 100px;">
+                    </div>
+                {% endif %}
+                {{ form.profile_picture }}
+            </div>
+
+            {% if form.errors %}
+                <div class="alert alert-danger">
+                    <ul>
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
                 </div>
             {% endif %}
-            {{ form.profile_picture }}
-        </div>
 
-        {% if form.errors %}
-            <div class="alert alert-danger">
-                <ul>
-                    {% for field in form %}
-                        {% for error in field.errors %}
-                            <li>{{ error }}</li>
-                        {% endfor %}
-                    {% endfor %}
-                </ul>
+            <!-- Buttons -->
+            <div class="d-flex justify-content-between mt-3">
+                <button type="submit" class="btn btn-primary flex-fill me-2">Save Changes</button>
+                <a href="{% url 'profile' %}" class="btn btn-outline-info flex-fill">Cancel</a>
             </div>
-        {% endif %}
-
-        <!-- Buttons -->
-        <div class="d-flex justify-content-between mt-3">
-            <button type="submit" class="btn btn-primary flex-fill me-2">Save Changes</button>
-            <a href="{% url 'profile' %}" class="btn btn-outline-info flex-fill">Cancel</a>
-        </div>
-    </form>
-  </div>
+        </form>
+    </div>
 {% endblock %}
