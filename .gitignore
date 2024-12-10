@@ -1,4 +1,6 @@
+__pycache__/
+*.py[cod]
+*$py.class
 .venv
 .idea
 .env
-eventManager/__pycache__
