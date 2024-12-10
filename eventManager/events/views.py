@@ -1,3 +1,4 @@
+from asgiref.sync import sync_to_async
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.mail import send_mail
@@ -88,6 +89,7 @@ class EventRegistrationView(LoginRequiredMixin, View):
                 )
 
         return redirect('event-detail', pk=pk)
+
 
 class EventUnregisterView(LoginRequiredMixin, View):
     def post(self, request, pk, *args, **kwargs):

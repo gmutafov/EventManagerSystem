@@ -1,7 +1,4 @@
-from logging import raiseExceptions
-
 from django.db.models import Q
-from django.http import Http404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, TemplateView, UpdateView, CreateView, DeleteView, DetailView
 from eventManager.common.forms import OrganizerForm, VenueForm

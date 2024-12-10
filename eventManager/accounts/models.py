@@ -4,7 +4,6 @@ from django.db import models
 from eventManager.accounts.validators import validate_capitalized, only_letters
 
 
-# Create your models here.
 
 class AppUser(AbstractUser):
     first_name = models.CharField(
@@ -19,7 +18,7 @@ class AppUser(AbstractUser):
         validators=[validate_capitalized,
                     only_letters]
     )
-    email = models.EmailField()
+    email = models.EmailField(unique=True)
     bio = models.TextField(blank=True)
     profile_picture = models.URLField(blank=True, null=True)
 
