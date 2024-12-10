@@ -6,13 +6,19 @@ _A project for my Django Advanced Course at SoftUni._
 # Project Setup
 
 **1. Clone the repository:**
-  `git clone https://github.com/gmutafov/EventManagerSystem.git`
-
+```bash
+git clone https://github.com/gmutafov/EventManagerSystem.git
+```
 **2. Open the project**
 **3. Install dependencies**
-  `pip install -r requirements.txt`
+  ```bash
+
+  pip install -r requirements.txt
+```
 **4. Change DB settings in settings.py**
-`     DATABASES = {
+```bash
+
+     DATABASES = {
       "default": {
           "ENGINE": "django.db.backends.postgresql",
           "NAME": "your_db_name",
@@ -22,14 +28,18 @@ _A project for my Django Advanced Course at SoftUni._
           "PORT": "5432",
       }
   }
-  `
+  ```
 
 **5. Run the migration**
- ` python manage.py migrate`
+ ```bash
 
+  python manage.py migrate`
+```
 **6. Run the project**
-  `python manage.py runserver`
+  ```bash
 
+  python manage.py runserver
+```
 
 # 📖 Overview
 The Event Management System is a Django-based web application designed to simplify the creation, organization, and management of events. It enables users to register for events, staff to create events, book venues, and collaborate with organizers, all through a user-friendly interface.
