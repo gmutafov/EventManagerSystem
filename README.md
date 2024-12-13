@@ -61,7 +61,7 @@ Event Management:
 Venue and Organizer Models:
 
 - Manage venues (name, location, capacity).
-- Organizer profiles linked to user accounts.
+- Organizer profiles linked to events.
 
 Responsive Design:
 
