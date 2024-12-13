@@ -10,6 +10,7 @@ _A project for my Django Advanced Course at SoftUni._
 git clone https://github.com/gmutafov/EventManagerSystem.git
 ```
 **2. Open the project**
+
 **3. Install dependencies**
   ```bash
 
