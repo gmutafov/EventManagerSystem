@@ -1,7 +1,4 @@
 # EventManagerSystem
-_A project for my Django Advanced Course at SoftUni._
-
-- Deployed at: https://eventmanager-d5hwhfepdrb9h8a7.italynorth-01.azurewebsites.net
 
 # Project Setup
 
@@ -10,6 +7,7 @@ _A project for my Django Advanced Course at SoftUni._
 git clone https://github.com/gmutafov/EventManagerSystem.git
 ```
 **2. Open the project**
+
 **3. Install dependencies**
   ```bash
 
@@ -60,7 +58,7 @@ Event Management:
 Venue and Organizer Models:
 
 - Manage venues (name, location, capacity).
-- Organizer profiles linked to user accounts.
+- Organizer profiles linked to events.
 
 Responsive Design:
 
