@@ -1,7 +1,4 @@
 # EventManagerSystem
-_A project for my Django Advanced Course at SoftUni._
-
-- Deployed at: https://eventmanager-d5hwhfepdrb9h8a7.italynorth-01.azurewebsites.net
 
 # Project Setup
 
