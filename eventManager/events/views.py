@@ -80,13 +80,13 @@ class EventRegistrationView(LoginRequiredMixin, View):
             else:
                 Registration.objects.create(user=request.user, event=event)
                 messages.success(request, "You have successfully registered for this event!")
-
-                send_mail(
-                    subject=f'Registration Confirmed: {event.title}',
-                    message= f"Hi {request.user.first_name},\n\nYou have successfully registered for {event.title}",
-                    from_email=settings.SENDER_EMAIL,
-                    recipient_list=[request.user.email]
-                )
+                #
+                # send_mail(
+                #     subject=f'Registration Confirmed: {event.title}',
+                #     message= f"Hi {request.user.first_name},\n\nYou have successfully registered for {event.title}",
+                #     from_email=settings.SENDER_EMAIL,
+                #     recipient_list=[request.user.email]
+                # )
 
         return redirect('event-detail', pk=pk)
 
@@ -99,12 +99,12 @@ class EventUnregisterView(LoginRequiredMixin, View):
         if registration:
             registration.delete()
             messages.success(request, "You have successfully unregistered from this event.")
-            send_mail(
-                subject=f'Unregistration Confirmed: {event.title}',
-                message=f"Hi {request.user.first_name},\n\nYou have successfully unregistered for {event.title}.",
-                from_email=settings.SENDER_EMAIL,
-                recipient_list=[request.user.email]
-            )
+            # send_mail(
+            #     subject=f'Unregistration Confirmed: {event.title}',
+            #     message=f"Hi {request.user.first_name},\n\nYou have successfully unregistered for {event.title}.",
+            #     from_email=settings.SENDER_EMAIL,
+            #     recipient_list=[request.user.email]
+            # )
         else:
             messages.warning(request, "You are not registered for this event.")
 
